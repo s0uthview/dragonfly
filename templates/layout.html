@@ -1,0 +1,9 @@
+{% extends "bootstrap/base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+{% endblock %}
+
+<html lang="en" data-bs-theme="dark">
+    {% block content %} {% endblock %}
+</html>

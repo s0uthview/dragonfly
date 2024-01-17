@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    {{ super() }}
+    <title>{% block title %}dragonfly{% endblock %}</title>
+{% endblock %}
+
+{% block content %}
+
+<div class="jumbotron text-center dragonfly-text">
+  <h1>dragonfly</h1>
+  <h3>Markdown paste service with self-destructing</h3>
+</div>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div class="alert alert-{{ messages.0.0 }} dragonfly-text" role="alert">
+      {% for category, message in messages %}
+        {{ message }} </br>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+<h2 class="dragonfly-text text-center">404 :(</h2>
+<br>
+<h4 class="dragonfly-text text-center">This content could not be found on our server.</h4>
+
+{% endblock %}
